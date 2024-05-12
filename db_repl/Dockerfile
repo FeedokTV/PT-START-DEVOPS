@@ -1,0 +1,4 @@
+FROM postgres:14
+
+EXPOSE $DB_PORT
+
