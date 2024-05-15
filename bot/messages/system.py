@@ -39,11 +39,11 @@ async def get_info(message: types.Message, state: FSMContext):
     elif command == 'w':
         result = utils.run_command('w')
     elif command == 'auths':
-        result = utils.run_command('last')
+        result = utils.run_command('last -n 10')
     elif command == 'critical':
         result = utils.run_command('journalctl -p 0..3 -n 5')
     elif command == 'ps':
-        result = utils.run_command('ps aux')
+        result = utils.run_command('ps aux | head -n 10')
     elif command == 'ss':
         result = utils.run_command('ss -t')
     elif command == 'apt_list':

@@ -11,13 +11,15 @@ def find_emails(text):
 
 def find_phone_numbers(text):
     # Шаблоны для номеров телефонов
-    patterns = [
-        r'(?:\+7|8)[-(]?\d{3}[)-]?\s?\d{3}\s?\d{2}\s?\d{2}\b',  # 7|8(XXX)XXXXXXX, 8 XXX XXX XX XX, 8 (XXX) XXX XX XX, 8-XXX-XXX-XX-XX
-        r'(?:\+7|8)\(\d{3}\)\d{7}\b',  # 7|8(XXX)XXXXXXX
-        r'(?:\+7|8)\s\d{3}\s\d{3}\s\d{2}\s\d{2}\b',  # +7|8 XXX XXX XX XX
-        r'(?:\+7|8)\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}\b',  # +7|8 (XXX) XXX XX XX
-        r'(?:\+7|8)-\d{3}-\d{3}-\d{2}-\d{2}\b',  # +7|8-XXX-XXX-XX-XX
-    ]
+    #patterns = [
+    #    r'(?:\+7|8)[-(]?\d{3}[)-]?\s?\d{3}\s?\d{2}\s?\d{2}\b',  # 7|8(XXX)XXXXXXX, 8 XXX XXX XX XX, 8 (XXX) XXX XX XX, 8-XXX-XXX-XX-XX
+    #    r'(?:\+7|8)\(\d{3}\)\d{7}\b',  # 7|8(XXX)XXXXXXX
+    #    r'(?:\+7|8)\s\d{3}\s\d{3}\s\d{2}\s\d{2}\b',  # +7|8 XXX XXX XX XX
+    #    r'(?:\+7|8)\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}\b',  # +7|8 (XXX) XXX XX XX
+    #    r'(?:\+7|8)-\d{3}-\d{3}-\d{2}-\d{2}\b',  # +7|8-XXX-XXX-XX-XX
+    #]
+
+    patterns = [r"\+?7[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}|\+?7[ -]?\d{10}|\+?7[ -]?\d{3}[ -]?\d{3}[ -]?\d{4}|8[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}|8[ -]?\d{10}|8[ -]?\d{3}[ -]?\d{3}[ -]?\d{4}"]
 
     phone_numbers = []
     for pattern in patterns:

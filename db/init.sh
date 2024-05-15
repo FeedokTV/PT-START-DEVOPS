@@ -5,7 +5,7 @@ psql -v ON_ERROR_STOP=1 --username "$DB_USER" --dbname "$DB_DATABASE" <<-EOSQL
     ALTER USER "$DB_USER" WITH PASSWORD '$DB_PASSWORD';
     CREATE ROLE $DB_REPL_USER REPLICATION LOGIN PASSWORD '$DB_REPL_PASSWORD';
     CREATE TABLE emails( id serial PRIMARY KEY,email VARCHAR (100) NOT NULL);
-    CREATE TABLE phone_numbers( id serial PRIMARY KEY,phone_number VARCHAR (15) NOT NULL);
+    CREATE TABLE phone_numbers( id serial PRIMARY KEY,phone_number VARCHAR (20) NOT NULL);
 EOSQL
 
 
