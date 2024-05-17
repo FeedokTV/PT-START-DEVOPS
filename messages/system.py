@@ -66,7 +66,7 @@ async def get_info(message: types.Message, state: FSMContext):
         for row in data:
             result += ''.join([str(row[0]),'\t\t\t',row[1],'\n'])
     elif command == 'repl_logs':
-        result = utils.run_command(f"echo {os.environ['RM_PASSWORD']} | sudo -S tail /var/log/postgresql/postgresql-14-main.log -n 25")
+        result = utils.run_command(f"echo {os.environ['RM_PASSWORD']} | sudo -S tail /var/log/postgresql/postgresql-14-main.log -n 25 | grep repl")
 
     text = 'Результат выполнения команды:\n'
     text += result
